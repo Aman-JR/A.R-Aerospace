@@ -55,7 +55,7 @@ export default function Home() {
             </div>
             <div style={{ marginTop: "2rem", display: "flex", gap: "10px", flexWrap: "wrap" }}>
               <span className="cert-active">EASA Part-145 Active</span>
-              <span className="cert-pending">DGCA CAR-145 In Process</span>
+              <span className="cert-pending">DGCA CAR-145 Soon</span>
             </div>
           </div>
         </div>
@@ -63,11 +63,12 @@ export default function Home() {
 
       {/* ── STATS STRIP ── */}
       <section style={{ background: "var(--navy-mid)", borderBottom: "1px solid rgba(184,150,46,0.2)" }}>
-        <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "2rem 2.5rem", display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "1rem", textAlign: "center" }} className="stats-grid">
+        <div style={{ maxWidth: "90rem", margin: "0 auto", padding: "2rem 2.5rem", display: "grid", gridTemplateColumns: "repeat(5,1fr)", gap: "1rem", textAlign: "center" }} className="stats-grid">
           {[
             { value: "5000+", label: "Components Capability" },
             { value: "100+", label: "Years Röder Group Heritage" },
             { value: "EASA", label: "Part-145 Certified" },
+            { value: "DGCA", label: "CAR-145 Soon" },
             { value: "NCR", label: "Greater Noida Facility" },
           ].map(s => (
             <div key={s.label} style={{ padding: "0.75rem" }}>
@@ -100,7 +101,7 @@ export default function Home() {
               {[
                 { src: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=500&q=80&auto=format&fit=crop", alt: "Aircraft" },
                 { src: "https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=500&q=80&auto=format&fit=crop", alt: "Aircraft interior" },
-                { src: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=500&q=80&auto=format&fit=crop", alt: "Aircraft tail" },
+                { src: "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=500&q=80&auto=format&fit=crop", alt: "Aircraft cabin interior" },
                 { src: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=500&q=80&auto=format&fit=crop", alt: "Aircraft on ground" },
               ].map(({ src, alt }) => (
                 <div key={alt} className="img-hover-zoom" style={{ overflow: "hidden", height: "100%" }}>
@@ -333,7 +334,7 @@ export default function Home() {
           .rg { grid-template-columns: 1fr !important; }
           .services-grid { grid-template-columns: repeat(2,1fr) !important; }
           .three-grid { grid-template-columns: 1fr 1fr !important; }
-          .stats-grid { grid-template-columns: repeat(2,1fr) !important; }
+          .stats-grid { grid-template-columns: repeat(3,1fr) !important; }
         }
         @media (max-width: 560px) {
           .services-grid { grid-template-columns: 1fr !important; }
