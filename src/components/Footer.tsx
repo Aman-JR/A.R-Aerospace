@@ -1,7 +1,11 @@
 import { Link } from "wouter";
-import { Phone, Mail, MapPin, Clock, Globe, ArrowRight } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Globe, ArrowRight, X } from "lucide-react";
+import { useState } from "react";
 
 export default function Footer() {
+  const [showPrivacy, setShowPrivacy] = useState(false);
+  const [showTerms, setShowTerms] = useState(false);
+
   return (
     <footer style={{ background: "var(--navy)", color: "#9ca3af" }}>
       <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "4rem 2.5rem 2rem" }}>
@@ -10,8 +14,6 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div style={{ marginBottom: "1.25rem" }}>
-              <img src="/logo-light.png" alt="A.R. Aerospace" style={{ height: "48px", width: "auto", objectFit: "contain", display: "block", marginBottom: "10px" }}
-                onError={e => { (e.currentTarget as HTMLImageElement).style.display = "none"; }} />
               <p style={{ color: "#fff", fontSize: "1rem", fontWeight: 800, letterSpacing: "0.04em", margin: "0 0 2px" }}>A.R. Aerospace</p>
               <p style={{ fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--gold)", margin: 0 }}>Your Trusted MRO Partner</p>
             </div>
@@ -114,11 +116,11 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div style={{ borderTop: "1px solid #1f2937" }}>
-        <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "1.25rem 2.5rem", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "12px" }}>
+        <div className="footer-bottom" style={{ maxWidth: "80rem", margin: "0 auto", padding: "1.25rem 2.5rem", display: "flex", alignItems: "center", gap: "2rem" }}>
           <p style={{ fontSize: "0.72rem", color: "#4b5563", margin: 0 }}>&copy; {new Date().getFullYear()} A.R. Aerospace Private Limited — All rights reserved</p>
-          <div style={{ display: "flex", gap: "24px", alignItems: "center" }}>
-            <a href="#" style={{ fontSize: "0.72rem", color: "#4b5563", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "var(--gold)"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#4b5563"}>Privacy Policy</a>
-            <a href="#" style={{ fontSize: "0.72rem", color: "#4b5563", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "var(--gold)"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#4b5563"}>Terms</a>
+          <div style={{ display: "flex", gap: "2rem", alignItems: "center" }}>
+            <button onClick={() => setShowPrivacy(true)} style={{ fontSize: "0.72rem", color: "#4b5563", textDecoration: "none", transition: "color 0.2s", background: "none", border: "none", cursor: "pointer", padding: 0 }} onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "var(--gold)"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#4b5563"}>Privacy Policy</button>
+            <button onClick={() => setShowTerms(true)} style={{ fontSize: "0.72rem", color: "#4b5563", textDecoration: "none", transition: "color 0.2s", background: "none", border: "none", cursor: "pointer", padding: 0 }} onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "var(--gold)"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#4b5563"}>Terms of Service</button>
             <Link href="/certifications">
               <span style={{ fontSize: "0.72rem", color: "#4b5563", cursor: "pointer", transition: "color 0.2s" }} onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "var(--gold)"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#4b5563"}>Certifications</span>
             </Link>
@@ -127,9 +129,82 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Privacy Policy Modal */}
+      {showPrivacy && (
+        <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.7)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1000, padding: "1rem" }}>
+          <div style={{ background: "#fff", borderRadius: "6px", maxWidth: "600px", width: "100%", maxHeight: "70vh", overflow: "auto", boxShadow: "0 20px 60px rgba(0,0,0,0.3)" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "1.5rem", borderBottom: "1px solid #e5e7eb", position: "sticky", top: 0, background: "#fff" }}>
+              <h2 style={{ fontSize: "1.1rem", fontWeight: 800, color: "#111827", margin: 0 }}>Privacy Policy</h2>
+              <button onClick={() => setShowPrivacy(false)} style={{ background: "none", border: "none", cursor: "pointer", padding: "4px" }}>
+                <X style={{ width: "20px", height: "20px", color: "#6b7280" }} />
+              </button>
+            </div>
+            <div style={{ padding: "1.5rem" }}>
+              <h3 style={{ fontSize: "0.95rem", fontWeight: 700, color: "#111827", marginTop: "0" }}>Data Collection</h3>
+              <p style={{ fontSize: "0.85rem", color: "#4b5563", lineHeight: 1.75, marginBottom: "1rem" }}>We collect minimal personal information necessary to provide services. This includes name, email, and contact details when you reach out to us through our contact forms or communications.</p>
+
+              <h3 style={{ fontSize: "0.95rem", fontWeight: 700, color: "#111827", marginBottom: "0.5rem" }}>Data Usage</h3>
+              <p style={{ fontSize: "0.85rem", color: "#4b5563", lineHeight: 1.75, marginBottom: "1rem" }}>Your information is used solely to respond to inquiries, provide services, and improve our offerings. We do not share your data with third parties without consent.</p>
+
+              <h3 style={{ fontSize: "0.95rem", fontWeight: 700, color: "#111827", marginBottom: "0.5rem" }}>Security</h3>
+              <p style={{ fontSize: "0.85rem", color: "#4b5563", lineHeight: 1.75 }}>We implement industry-standard security measures to protect your personal information from unauthorized access and misuse.</p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Terms Modal */}
+      {showTerms && (
+        <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.7)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1000, padding: "1rem" }}>
+          <div style={{ background: "#fff", borderRadius: "6px", maxWidth: "600px", width: "100%", maxHeight: "70vh", overflow: "auto", boxShadow: "0 20px 60px rgba(0,0,0,0.3)" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "1.5rem", borderBottom: "1px solid #e5e7eb", position: "sticky", top: 0, background: "#fff" }}>
+              <h2 style={{ fontSize: "1.1rem", fontWeight: 800, color: "#111827", margin: 0 }}>Terms of Service</h2>
+              <button onClick={() => setShowTerms(false)} style={{ background: "none", border: "none", cursor: "pointer", padding: "4px" }}>
+                <X style={{ width: "20px", height: "20px", color: "#6b7280" }} />
+              </button>
+            </div>
+            <div style={{ padding: "1.5rem" }}>
+              <h3 style={{ fontSize: "0.95rem", fontWeight: 700, color: "#111827", marginTop: "0" }}>Use of Services</h3>
+              <p style={{ fontSize: "0.85rem", color: "#4b5563", lineHeight: 1.75, marginBottom: "1rem" }}>By using our website and services, you agree to use them for lawful purposes only. You must not use our services for any illegal or unauthorized activities.</p>
+
+              <h3 style={{ fontSize: "0.95rem", fontWeight: 700, color: "#111827", marginBottom: "0.5rem" }}>Intellectual Property</h3>
+              <p style={{ fontSize: "0.85rem", color: "#4b5563", lineHeight: 1.75, marginBottom: "1rem" }}>All content on our website, including text, graphics, logos, and images, is the property of A.R. Aerospace or its content suppliers and is protected by copyright laws.</p>
+
+              <h3 style={{ fontSize: "0.95rem", fontWeight: 700, color: "#111827", marginBottom: "0.5rem" }}>Disclaimer</h3>
+              <p style={{ fontSize: "0.85rem", color: "#4b5563", lineHeight: 1.75 }}>We provide services on an "as is" basis. We do not warrant that our services will be uninterrupted or error-free. A.R. Aerospace is not liable for any indirect or consequential damages.</p>
+            </div>
+          </div>
+        </div>
+      )}
+
       <style>{`
+        .footer-bottom {
+          display: flex;
+          align-items: center;
+          gap: 2rem;
+          flex-wrap: wrap;
+        }
+        .footer-bottom p {
+          margin: 0;
+        }
+        .footer-bottom > div {
+          display: flex;
+          gap: 2rem;
+          align-items: center;
+        }
         @media (max-width: 900px) {
           .footer-grid { grid-template-columns: 1fr 1fr !important; }
+        }
+        @media (max-width: 768px) {
+          .footer-bottom {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+          }
+          .footer-bottom > div {
+            flex-wrap: wrap;
+            gap: 1rem;
+          }
         }
         @media (max-width: 560px) {
           .footer-grid { grid-template-columns: 1fr !important; }

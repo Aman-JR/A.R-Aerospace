@@ -73,7 +73,7 @@ export default function Navbar() {
                 src={isDark ? "/logo-light.png" : "/logo-dark.png"}
                 alt="A.R. Aerospace"
                 style={{
-                  height: "52px",
+                  height: "60px",
                   width: "auto",
                   objectFit: "contain",
                   transition: "opacity 0.3s",

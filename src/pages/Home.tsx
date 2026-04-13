@@ -3,14 +3,22 @@ import { ArrowRight, CheckCircle, Shield, Zap, Award, Users } from "lucide-react
 import { useEffect, useRef } from "react";
 
 const services = [
-  { title: "Seat Covers", subtitle: "Upholstery & Refurbishment", img: "https://images.unsplash.com/photo-1540339832862-474599807836?w=700&q=80&auto=format&fit=crop", href: "/services#seat-covers" },
-  { title: "Carpets", subtitle: "Supply & Installation", img: "https://images.unsplash.com/photo-1530840716-4c1c52ede54f?w=700&q=80&auto=format&fit=crop", href: "/services#carpets" },
+  // Aircraft cabin seats / leather upholstery
+  { title: "Seat Covers", subtitle: "Upholstery & Refurbishment", img: "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=700&q=80&auto=format&fit=crop", href: "/services#seat-covers" },
+  // Aircraft interior aisle, floor & carpet visible
+  { title: "Carpets", subtitle: "Supply & Installation", img: "https://images.unsplash.com/photo-1483450388369-9ed95738483c?w=700&q=80&auto=format&fit=crop", href: "/services#carpets" },
+  // Aircraft galley / service trolley area
   { title: "Galley Equipment", subtitle: "MRO & Overhaul", img: "https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=700&q=80&auto=format&fit=crop", href: "/services#galley" },
-  { title: "Life Rafts", subtitle: "Inspection & Repacking", img: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&q=80&auto=format&fit=crop", href: "/services#life-rafts" },
-  { title: "Life Vests", subtitle: "Testing & Certification", img: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=700&q=80&auto=format&fit=crop", href: "/services#life-vests" },
-  { title: "Floor Panels", subtitle: "Removal, Repair & Refit", img: "https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?w=700&q=80&auto=format&fit=crop", href: "/services#floor-panels" },
-  { title: "Escape Slides", subtitle: "Repacking & Re-certification", img: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=700&q=80&auto=format&fit=crop", href: "/services#escape-slides" },
-  { title: "Avionics", subtitle: "Bench Testing & Repair", img: "https://images.unsplash.com/photo-1608023136037-626dad6be634?w=700&q=80&auto=format&fit=crop", href: "/services#avionics" },
+  // Orange inflatable life raft / water safety equipment
+  { title: "Life Rafts", subtitle: "Inspection & Repacking", img: "https://images.unsplash.com/photo-1504851149312-7a075b496cc7?w=700&q=80&auto=format&fit=crop", href: "/services#life-rafts" },
+  // Orange safety life jacket / vest
+  { title: "Life Vests", subtitle: "Testing & Certification", img: "https://images.unsplash.com/photo-1513829596324-4bb2800c5efb?w=700&q=80&auto=format&fit=crop", href: "/services#life-vests" },
+  // Technical maintenance / panel repair work
+  { title: "Floor Panels", subtitle: "Removal, Repair & Refit", img: "https://images.unsplash.com/photo-1581092162384-8987c1d64926?w=700&q=80&auto=format&fit=crop", href: "/services#floor-panels" },
+  // Aircraft emergency / inflatable safety equipment
+  { title: "Escape Slides", subtitle: "Repacking & Re-certification", img: "https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?w=700&q=80&auto=format&fit=crop", href: "/services#escape-slides" },
+  // Aircraft cockpit overhead instrument panel
+  { title: "Avionics", subtitle: "Bench Testing & Repair", img: "https://images.unsplash.com/photo-1517732306149-e8f829eb588a?w=700&q=80&auto=format&fit=crop", href: "/services#avionics" },
 ];
 
 function useReveal() {
@@ -87,20 +95,18 @@ export default function Home() {
                 <span className="btn-outline-dark">About Us <ArrowRight style={{ width: "13px", height: "13px" }} /></span>
               </Link>
             </div>
-            {/* 2×2 image mosaic — properly aligned */}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr 1fr", gap: "6px", height: "460px" }}>
-              <div className="img-hover-zoom" style={{ gridColumn: "1", gridRow: "1" }}>
-                <img src="https://images.unsplash.com/photo-1540339832862-474599807836?w=500&q=80&auto=format&fit=crop" alt="Aircraft cabin" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-              </div>
-              <div className="img-hover-zoom" style={{ gridColumn: "2", gridRow: "1", marginTop: "32px" }}>
-                <img src="https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?w=500&q=80&auto=format&fit=crop" alt="MRO work" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-              </div>
-              <div className="img-hover-zoom" style={{ gridColumn: "1", gridRow: "2", marginTop: "-32px" }}>
-                <img src="https://images.unsplash.com/photo-1608023136037-626dad6be634?w=500&q=80&auto=format&fit=crop" alt="Avionics" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-              </div>
-              <div className="img-hover-zoom" style={{ gridColumn: "2", gridRow: "2" }}>
-                <img src="https://images.unsplash.com/photo-1530840716-4c1c52ede54f?w=500&q=80&auto=format&fit=crop" alt="Interior" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-              </div>
+            {/* 2×2 image mosaic */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr 1fr", gap: "6px", height: "clamp(300px, 45vh, 480px)" }}>
+              {[
+                { src: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=500&q=80&auto=format&fit=crop", alt: "Aircraft" },
+                { src: "https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=500&q=80&auto=format&fit=crop", alt: "Aircraft interior" },
+                { src: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=500&q=80&auto=format&fit=crop", alt: "Aircraft tail" },
+                { src: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=500&q=80&auto=format&fit=crop", alt: "Aircraft on ground" },
+              ].map(({ src, alt }) => (
+                <div key={alt} className="img-hover-zoom" style={{ overflow: "hidden", height: "100%" }}>
+                  <img src={src} alt={alt} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -121,7 +127,7 @@ export default function Home() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "4px" }} className="services-grid">
             {services.map((svc) => (
               <Link key={svc.title} href={svc.href}>
-                <div className="service-card" style={{ height: "250px" }}>
+                <div className="service-card" style={{ height: "clamp(200px, 35vh, 280px)" }}>
                   <img src={svc.img} alt={svc.title} loading="lazy" />
                   <div className="service-card-overlay">
                     <div className="service-card-desc">{svc.subtitle}</div>
@@ -170,7 +176,7 @@ export default function Home() {
       <section style={{ background: "#fff", padding: "5rem 0" }}>
         <div ref={r4} className="reveal" style={{ maxWidth: "80rem", margin: "0 auto", padding: "0 2.5rem" }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 0 }} className="rg">
-            <div style={{ position: "relative", minHeight: "440px", overflow: "hidden" }}>
+            <div style={{ position: "relative", minHeight: "clamp(300px, 40vh, 480px)", overflow: "hidden" }}>
               <img src="https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=800&q=80&auto=format&fit=crop" alt="Partnership" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
               <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(10,18,32,0.88) 0%, rgba(10,18,32,0.45) 100%)" }} />
               <div style={{ position: "relative", zIndex: 10, padding: "3rem", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
@@ -251,7 +257,7 @@ export default function Home() {
               { href: "/markets#general", img: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80&auto=format&fit=crop", code: "GA", title: "General Aviation", desc: "Business jets, VIP charter, air ambulance, corporate flight departments" },
             ].map(m => (
               <Link key={m.title} href={m.href}>
-                <div className="service-card" style={{ height: "320px" }}>
+                <div className="service-card" style={{ height: "clamp(240px, 40vh, 360px)" }}>
                   <img src={m.img} alt={m.title} />
                   <div className="service-card-overlay">
                     <div className="service-card-desc">{m.desc}</div>
@@ -293,7 +299,7 @@ export default function Home() {
                 <p style={{ fontSize: "0.82rem", color: "#6b7280", margin: 0 }}>Mon–Fri · 10:00 AM – 6:00 PM IST</p>
               </div>
             </div>
-            <div className="img-hover-zoom" style={{ height: "520px", position: "relative" }}>
+            <div className="img-hover-zoom" style={{ height: "clamp(360px, 55vh, 600px)", position: "relative" }}>
               {/* Uses actual facility photo from PPT slide 8 */}
               <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80&auto=format&fit=crop" alt="A.R. Aerospace Facility, Greater Noida" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
               <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "1.5rem", background: "linear-gradient(to top, rgba(10,18,32,0.9), transparent)" }}>
