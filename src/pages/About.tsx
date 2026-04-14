@@ -5,7 +5,7 @@ export default function About() {
   return (
     <div>
       <div className="page-hero">
-        <img src="https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?w=1400&q=75&auto=format&fit=crop" alt="Facility" />
+        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1920&q=95&auto=format&fit=crop" alt="About A.R. Aerospace" />
         <div className="page-hero-content max-w-7xl" style={{ padding: "0 2.5rem", width: "100%" }}>
           <div className="fade-up">
             <span className="section-label">About Us</span>
@@ -41,9 +41,14 @@ export default function About() {
               </div>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4px" }}>
-              {["https://images.unsplash.com/photo-1540339832862-474599807836?w=500&q=80", "https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?w=500&q=80", "https://images.unsplash.com/photo-1608023136037-626dad6be634?w=500&q=80", "https://images.unsplash.com/photo-1530840716-4c1c52ede54f?w=500&q=80"].map((src, i) => (
-                <div key={i} className="img-hover-zoom" style={{ height: i < 2 ? "240px" : "200px" }}>
-                  <img src={src} alt="MRO" />
+              {[
+                { src: "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=1200&q=95&auto=format&fit=crop", alt: "Aircraft cabin interior" },
+                { src: "https://images.unsplash.com/photo-1517732306149-e8f829eb588a?w=1200&q=95&auto=format&fit=crop", alt: "Aircraft cockpit" },
+                { src: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=95&auto=format&fit=crop", alt: "MRO facility" },
+                { src: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=1200&q=95&auto=format&fit=crop", alt: "Aircraft on ground" },
+              ].map(({ src, alt }, i) => (
+                <div key={i} className="img-hover-zoom" style={{ height: i < 2 ? "240px" : "200px", overflow: "hidden" }}>
+                  <img src={src} alt={alt} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                 </div>
               ))}
             </div>
@@ -86,14 +91,14 @@ export default function About() {
           <h2 style={{ fontSize: "1.75rem", fontWeight: 800, color: "#111827", marginBottom: "3rem" }}>What We Stand For</h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "2rem" }} className="values-grid">
             {[
-              { no: "01", title: "Safety First", desc: "Every decision, every repair, every inspection prioritizes the safety of passengers and crew above all else.", img: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400&q=80" },
-              { no: "02", title: "Technical Excellence", desc: "Our technicians are trained to the highest standards. Precision and quality are non-negotiable.", img: "https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?w=400&q=80" },
-              { no: "03", title: "Regulatory Compliance", desc: "Fully EASA Part-145 compliant with DGCA CAR-145 in process. Operating within the strictest frameworks.", img: "https://images.unsplash.com/photo-1530840716-4c1c52ede54f?w=400&q=80" },
-              { no: "04", title: "Customer Centricity", desc: "Tailored solutions, quick turnaround, and transparent communication — partners airlines can depend on.", img: "https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=400&q=80" },
+              { no: "01", title: "Safety First", desc: "Every decision, every repair, every inspection prioritizes the safety of passengers and crew above all else.", img: "https://images.unsplash.com/photo-1569629743817-70d8db6c323b?w=800&q=95&auto=format&fit=crop" },
+              { no: "02", title: "Technical Excellence", desc: "Our technicians are trained to the highest standards. Precision and quality are non-negotiable.", img: "https://images.unsplash.com/photo-1517732306149-e8f829eb588a?w=800&q=95&auto=format&fit=crop" },
+              { no: "03", title: "Regulatory Compliance", desc: "Fully EASA Part-145 compliant with DGCA CAR-145 in process. Operating within the strictest frameworks.", img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=95&auto=format&fit=crop" },
+              { no: "04", title: "Customer Centricity", desc: "Tailored solutions, quick turnaround, and transparent communication — partners airlines can depend on.", img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=95&auto=format&fit=crop" },
             ].map(val => (
               <div key={val.no}>
-                <div className="img-hover-zoom" style={{ height: "180px", marginBottom: "1rem" }}>
-                  <img src={val.img} alt={val.title} />
+                <div className="img-hover-zoom" style={{ height: "180px", marginBottom: "1rem", overflow: "hidden" }}>
+                  <img src={val.img} alt={val.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                 </div>
                 <p style={{ fontSize: "0.7rem", fontWeight: 700, color: "#d1d5db", margin: "0 0 4px" }}>{val.no}</p>
                 <h3 style={{ fontWeight: 700, color: "#111827", margin: "0 0 8px", fontSize: "0.95rem" }}>{val.title}</h3>

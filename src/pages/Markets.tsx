@@ -102,7 +102,7 @@ export default function Markets() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "2px", background: "#e5e7eb" }} className="three-grid">
             {[
               { title: "One-Stop Interior MRO", desc: "Seat covers, carpets, life rafts, escape slides, floor panels, and avionics — all under one roof.", img: "https://images.unsplash.com/photo-1540339832862-474599807836?w=600&q=80" },
-              { title: "Dual Certification", desc: "EASA Part-145 active and DGCA CAR-145 in process — seamlessly serving both Indian-registered and internationally-registered aircraft.", img: "https://images.unsplash.com/photo-1530840716-4c1c52ede54f?w=600&q=80" },
+              { title: "Dual Certification", desc: "EASA Part-145 active and DGCA CAR-145 in process — seamlessly serving both Indian-registered and internationally-registered aircraft.", img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80&auto=format&fit=crop" },
               { title: "Strategic Location", desc: "Greater Noida — close to IGI Airport and the upcoming Noida International Airport. Fast access, fast delivery.", img: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=80" },
             ].map(item => (
               <div key={item.title} style={{ background: "#fff" }}>

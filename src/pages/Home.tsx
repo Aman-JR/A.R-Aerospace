@@ -3,22 +3,14 @@ import { ArrowRight, CheckCircle, Shield, Zap, Award, Users } from "lucide-react
 import { useEffect, useRef } from "react";
 
 const services = [
-  // Aircraft cabin seats / leather upholstery
-  { title: "Seat Covers", subtitle: "Upholstery & Refurbishment", img: "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=700&q=80&auto=format&fit=crop", href: "/services#seat-covers" },
-  // Aircraft interior aisle, floor & carpet visible
-  { title: "Carpets", subtitle: "Supply & Installation", img: "https://images.unsplash.com/photo-1483450388369-9ed95738483c?w=700&q=80&auto=format&fit=crop", href: "/services#carpets" },
-  // Aircraft galley / service trolley area
-  { title: "Galley Equipment", subtitle: "MRO & Overhaul", img: "https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=700&q=80&auto=format&fit=crop", href: "/services#galley" },
-  // Orange inflatable life raft / water safety equipment
-  { title: "Life Rafts", subtitle: "Inspection & Repacking", img: "https://images.unsplash.com/photo-1504851149312-7a075b496cc7?w=700&q=80&auto=format&fit=crop", href: "/services#life-rafts" },
-  // Orange safety life jacket / vest
-  { title: "Life Vests", subtitle: "Testing & Certification", img: "https://images.unsplash.com/photo-1513829596324-4bb2800c5efb?w=700&q=80&auto=format&fit=crop", href: "/services#life-vests" },
-  // Technical maintenance / panel repair work
-  { title: "Floor Panels", subtitle: "Removal, Repair & Refit", img: "https://images.unsplash.com/photo-1581092162384-8987c1d64926?w=700&q=80&auto=format&fit=crop", href: "/services#floor-panels" },
-  // Aircraft emergency / inflatable safety equipment
-  { title: "Escape Slides", subtitle: "Repacking & Re-certification", img: "https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?w=700&q=80&auto=format&fit=crop", href: "/services#escape-slides" },
-  // Aircraft cockpit overhead instrument panel
-  { title: "Avionics", subtitle: "Bench Testing & Repair", img: "https://images.unsplash.com/photo-1517732306149-e8f829eb588a?w=700&q=80&auto=format&fit=crop", href: "/services#avionics" },
+  { title: "Seat Covers", subtitle: "Upholstery & Refurbishment", img: "/Seat%20Cover.jpg", href: "/services#seat-covers" },
+  { title: "Carpets", subtitle: "Supply & Installation", img: "/Carpets.jpeg", href: "/services#carpets" },
+  { title: "Galley Equipment", subtitle: "MRO & Overhaul", img: "/Galley.jpeg", href: "/services#galley" },
+  { title: "Life Rafts", subtitle: "Inspection & Repacking", img: "/Life%20Raft.jpeg", href: "/services#life-rafts" },
+  { title: "Life Vests", subtitle: "Testing & Certification", img: "/Life%20Vest.jpeg", href: "/services#life-vests" },
+  { title: "Floor Panels", subtitle: "Removal, Repair & Refit", img: "/Floor%20Panel.jpeg", href: "/services#floor-panels" },
+  { title: "Escape Slides", subtitle: "Repacking & Re-certification", img: "/Escape%20Slides.jpeg", href: "/services#escape-slides" },
+  { title: "Avionics", subtitle: "Bench Testing & Repair", img: "/Avionics.jpeg", href: "/services#avionics" },
 ];
 
 function useReveal() {
@@ -302,7 +294,7 @@ export default function Home() {
             </div>
             <div className="img-hover-zoom" style={{ height: "clamp(360px, 55vh, 600px)", position: "relative" }}>
               {/* Uses actual facility photo from PPT slide 8 */}
-              <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80&auto=format&fit=crop" alt="A.R. Aerospace Facility, Greater Noida" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <img src="/Our%20Location.png" alt="A.R. Aerospace Facility, Greater Noida" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
               <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "1.5rem", background: "linear-gradient(to top, rgba(10,18,32,0.9), transparent)" }}>
                 <p style={{ color: "var(--gold)", fontSize: "0.62rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", margin: "0 0 4px" }}>Inaugurated</p>
                 <p style={{ color: "#fff", fontSize: "1.5rem", fontWeight: 800, margin: "0 0 2px" }}>April 2026</p>
